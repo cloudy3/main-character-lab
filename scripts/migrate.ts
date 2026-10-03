@@ -1,0 +1,13 @@
+import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import { migrate } from "drizzle-orm/better-sqlite3/migrator";
+import { mkdirSync } from "node:fs";
+import path from "node:path";
+const dir = path.resolve(process.env.DATA_DIR || "./data");
+mkdirSync(dir, { recursive: true });
+const sqlite = new Database(path.join(dir, "lab.sqlite"));
+sqlite.pragma("foreign_keys = ON");
+sqlite.pragma("journal_mode = WAL");
+migrate(drizzle(sqlite), { migrationsFolder: "./drizzle" });
+sqlite.close();
+console.log("Database migrations applied.");
