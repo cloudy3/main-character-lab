@@ -1,0 +1,45 @@
+{
+  "name": "main-character-lab",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.17.0"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.9.1",
+    "better-sqlite3": "^12.4.1",
+    "drizzle-orm": "^0.45.3",
+    "fflate": "^0.8.2",
+    "lucide-react": "^0.468.0",
+    "next": "16.3.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "drizzle-kit": "^0.31.5",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.8",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.3"
+  }
+}
